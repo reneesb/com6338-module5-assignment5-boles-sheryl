@@ -1,6 +1,6 @@
-    const form = document.querySelector('form');
+    const form = document.querySelector('#add-todo');
     const input = document.getElementById('todo-list');
-    const todoList = document.getElementById('todo-list');
+    const todoList = document.getElementById('todo-list-ul');
     var li = document.querySelector('li');
 
     form.onsubmit = function(e) {
@@ -15,17 +15,17 @@
             todoList.appendChild(li);
             input.value = "";  // Clear the input field after adding the todo item
             console.log(todoList);
-        }
-       
-        li.onclick = function() {
-            if (this.classList.contains('text')) {
-               li.style = 'text-decoration-line: line-through' 
-            } else {
-                li.style = 'text-decoration-line: none'
+
+            btn.onclick = function() {
+                if (btn.style.textDecoration === 'line-through') {
+                   li.remove();
+                } else {
+                    btn.style.textDecoration = 'line-through'
+                }
             }
         }
+             
 
     };
 
    
-    
